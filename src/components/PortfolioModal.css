@@ -1,0 +1,225 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: backdropIn 0.2s ease;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--border);
+  color: var(--heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.modal-close:hover {
+  background: rgba(255,60,0,0.2);
+  border-color: var(--accent);
+}
+
+/* Thumb */
+.modal-thumb {
+  position: relative;
+  min-height: 300px;
+  background: var(--bg-secondary);
+  border-radius: 16px 0 0 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-thumb-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 40% 40%, var(--card-color, var(--accent)), transparent 70%);
+  opacity: 0.25;
+}
+
+.modal-play-area {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.modal-play-btn:hover {
+  transform: scale(1.1);
+  background: var(--accent-hover);
+}
+
+.modal-play-area p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.modal-thumb-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Info */
+.modal-info {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-category {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(255,60,0,0.1);
+  border: 1px solid rgba(255,60,0,0.2);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.modal-year {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.modal-title {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1.1;
+}
+
+.modal-client {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.modal-desc {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+.modal-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.modal-detail-item span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 3px;
+}
+
+.modal-detail-item strong {
+  font-size: 14px;
+  color: var(--heading);
+  font-weight: 500;
+}
+
+.modal-cta {
+  margin-top: 4px;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .modal-box {
+    grid-template-columns: 1fr;
+    max-height: 95vh;
+  }
+
+  .modal-thumb {
+    border-radius: 16px 16px 0 0;
+    min-height: 200px;
+  }
+
+  .modal-info {
+    padding: 24px 20px;
+  }
+}

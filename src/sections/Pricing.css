@@ -1,0 +1,149 @@
+.pricing-section {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+}
+
+.pricing-card.highlight {
+  border-color: var(--accent);
+  background: linear-gradient(160deg, rgba(255,60,0,0.06) 0%, var(--bg-card) 60%);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.pricing-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pricing-card h3 {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.pricing-desc {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.price-amount {
+  font-family: var(--display);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.pricing-features li svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.pricing-cta {
+  width: 100%;
+  justify-content: center;
+  padding: 14px;
+}
+
+.pricing-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 40px;
+}
+
+.pricing-note a {
+  color: var(--accent);
+  transition: opacity 0.2s;
+}
+
+.pricing-note a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}

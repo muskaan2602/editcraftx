@@ -1,0 +1,127 @@
+.showreel-section {
+  padding: 100px 0;
+}
+
+.showreel-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.showreel-header .section-title {
+  margin-top: 8px;
+}
+
+.showreel-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+}
+
+.showreel-thumbnail {
+  position: relative;
+  aspect-ratio: 16/9;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.showreel-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.showreel-lines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  padding: 0 20px;
+}
+
+.showreel-line {
+  flex: 1;
+  background: var(--accent);
+  opacity: 0.3;
+  border-radius: 2px 2px 0 0;
+  animation: barAnim 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes barAnim {
+  from { height: 20%; }
+  to { height: 80%; }
+}
+
+.showreel-label {
+  position: relative;
+  z-index: 1;
+  font-family: var(--display);
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.06);
+  letter-spacing: 8px;
+  pointer-events: none;
+}
+
+.showreel-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(0,0,0,0.4);
+  transition: background 0.3s;
+}
+
+.showreel-thumbnail:hover .showreel-overlay {
+  background: rgba(0,0,0,0.2);
+}
+
+.play-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+  padding-left: 4px;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+  background: var(--accent-hover);
+}
+
+.showreel-overlay p {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.showreel-video {
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+.showreel-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
