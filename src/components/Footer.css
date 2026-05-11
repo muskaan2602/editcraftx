@@ -1,8 +1,10 @@
 .footer {
   background: var(--bg-secondary);
-  border-top: 1px solid var(--border);
+  border-top: 1px solid transparent;
+  background-image: linear-gradient(var(--bg-secondary), var(--bg-secondary));
+  box-shadow: 0 -1px 0 rgba(255,60,0,0.15), 0 -40px 80px rgba(255,60,0,0.03);
   padding: 80px 0 32px;
-  margin-top: 120px;
+  margin-top: 0;
 }
 
 .footer-top {
@@ -16,15 +18,16 @@
 .footer-logo {
   font-family: var(--display);
   font-size: 24px;
-  font-weight: 700;
-  color: var(--heading);
+  font-weight: 800;
   display: inline-block;
   margin-bottom: 16px;
+  background: linear-gradient(135deg, #ff3c00 0%, #ff0080 60%, #9b00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.footer-logo span {
-  color: var(--accent);
-}
+.footer-logo span { color: inherit; }
 
 .footer-brand p {
   font-size: 14px;

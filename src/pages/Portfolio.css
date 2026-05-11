@@ -21,24 +21,26 @@
 
 .filter-btn {
   font-size: 13px;
-  font-weight: 500;
-  padding: 8px 18px;
+  font-weight: 600;
+  padding: 8px 20px;
   border-radius: 100px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-bright);
   background: transparent;
   color: var(--text);
   transition: all 0.2s;
 }
 
 .filter-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: rgba(255,60,0,0.4);
+  color: var(--heading);
+  box-shadow: 0 0 12px rgba(255,60,0,0.1);
 }
 
 .filter-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--gradient-text);
+  border-color: transparent;
   color: #fff;
+  box-shadow: 0 0 20px rgba(255,60,0,0.3);
 }
 
 .portfolio-full-grid {
@@ -143,10 +145,11 @@
 
 .portfolio-full-info h3 {
   font-family: var(--display);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 700;
   color: var(--heading);
   margin-bottom: 4px;
+  letter-spacing: -0.3px;
 }
 
 .portfolio-client {

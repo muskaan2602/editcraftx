@@ -7,6 +7,8 @@ export default function Hero() {
       <div className="hero-bg">
         <div className="hero-gradient"></div>
         <div className="hero-grid"></div>
+        <div className="hero-orb-1"></div>
+        <div className="hero-orb-2"></div>
       </div>
 
       <div className="container hero-content">

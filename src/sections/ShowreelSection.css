@@ -92,19 +92,20 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--gradient-text);
   border: none;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s, background 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
   padding-left: 4px;
+  box-shadow: 0 0 30px rgba(255,60,0,0.4), 0 0 60px rgba(255,0,128,0.2);
 }
 
 .play-btn:hover {
-  transform: scale(1.1);
-  background: var(--accent-hover);
+  transform: scale(1.12);
+  box-shadow: 0 0 40px rgba(255,60,0,0.6), 0 0 80px rgba(255,0,128,0.3);
 }
 
 .showreel-overlay p {

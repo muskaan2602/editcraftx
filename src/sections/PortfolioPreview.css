@@ -17,27 +17,33 @@
 
 .portfolio-card {
   cursor: pointer;
+  outline: none;
+}
+
+.portfolio-card:focus-visible .portfolio-thumb {
+  border-color: var(--neon-orange);
 }
 
 .portfolio-thumb {
   position: relative;
   aspect-ratio: 16/10;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   margin-bottom: 16px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  transition: border-color 0.2s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .portfolio-card:hover .portfolio-thumb {
-  border-color: var(--card-color, var(--accent));
+  border-color: var(--card-color, var(--neon-orange));
+  box-shadow: 0 0 24px rgba(255,60,0,0.12);
 }
 
 .portfolio-thumb-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 40%, var(--card-color, var(--accent)), transparent 70%);
+  background: radial-gradient(ellipse at 30% 40%, var(--card-color, var(--neon-orange)), transparent 70%);
   opacity: 0.15;
   transition: opacity 0.3s;
 }
@@ -57,13 +63,13 @@
 }
 
 .portfolio-play svg {
-  width: 48px;
-  height: 48px;
-  background: rgba(0,0,0,0.6);
+  width: 52px;
+  height: 52px;
+  background: rgba(0,0,0,0.65);
   border-radius: 50%;
-  padding: 14px;
+  padding: 15px;
+  padding-left: 17px;
   color: #fff;
-  padding-left: 16px;
 }
 
 .portfolio-card:hover .portfolio-play {
@@ -74,44 +80,40 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.75);
   color: #fff;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   padding: 3px 8px;
   border-radius: 4px;
 }
 
 .portfolio-category {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--accent);
   display: block;
   margin-bottom: 6px;
+  background: linear-gradient(135deg, #ff3c00, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .portfolio-info h3 {
   font-family: var(--display);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--heading);
+  letter-spacing: -0.3px;
 }
 
 @media (max-width: 900px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .portfolio-preview-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-preview-header { flex-direction: column; align-items: flex-start; gap: 20px; }
 }
 
 @media (max-width: 560px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
+  .portfolio-grid { grid-template-columns: 1fr; }
 }

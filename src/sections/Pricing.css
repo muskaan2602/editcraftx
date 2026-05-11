@@ -1,13 +1,24 @@
 .pricing-section {
-  padding: 100px 0;
+  padding: 110px 0;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.4), rgba(155,0,255,0.4), transparent);
 }
 
 .pricing-header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,22 +35,29 @@
 .pricing-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px 32px;
+  border-radius: 18px;
+  padding: 40px 36px;
   display: flex;
   flex-direction: column;
   gap: 28px;
   position: relative;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .pricing-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.4);
 }
 
 .pricing-card.highlight {
-  border-color: var(--accent);
-  background: linear-gradient(160deg, rgba(255,60,0,0.06) 0%, var(--bg-card) 60%);
+  border-color: transparent;
+  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+              var(--gradient-text) border-box;
+  box-shadow: 0 0 40px rgba(255,60,0,0.15), 0 0 80px rgba(255,0,128,0.08);
+}
+
+.pricing-card.highlight:hover {
+  box-shadow: 0 0 60px rgba(255,60,0,0.25), 0 0 100px rgba(255,0,128,0.12), 0 24px 48px rgba(0,0,0,0.4);
 }
 
 .pricing-badge {
@@ -47,15 +65,16 @@
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--accent);
+  background: var(--gradient-text);
   color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 5px 16px;
+  padding: 5px 18px;
   border-radius: 100px;
   white-space: nowrap;
+  box-shadow: 0 0 20px rgba(255,60,0,0.4);
 }
 
 .pricing-card-top {
@@ -66,9 +85,10 @@
 
 .pricing-card h3 {
   font-family: var(--display);
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   color: var(--heading);
+  letter-spacing: -0.5px;
 }
 
 .pricing-desc {
@@ -86,22 +106,27 @@
 
 .price-amount {
   font-family: var(--display);
-  font-size: 42px;
-  font-weight: 700;
-  color: var(--heading);
+  font-size: 48px;
+  font-weight: 800;
   line-height: 1;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
 }
 
 .price-period {
   font-size: 14px;
   color: var(--text-light);
+  font-weight: 500;
 }
 
 .pricing-features {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 13px;
   flex: 1;
 }
 
@@ -111,39 +136,40 @@
   gap: 10px;
   font-size: 14px;
   color: var(--text);
+  font-weight: 500;
 }
 
 .pricing-features li svg {
-  color: var(--accent);
+  color: var(--neon-orange);
   flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(255,60,0,0.5));
 }
 
 .pricing-cta {
   width: 100%;
   justify-content: center;
-  padding: 14px;
+  padding: 15px;
+  font-size: 15px;
 }
 
 .pricing-note {
   text-align: center;
   font-size: 13px;
   color: var(--text-light);
-  margin-top: 40px;
+  margin-top: 44px;
 }
 
 .pricing-note a {
-  color: var(--accent);
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
   transition: opacity 0.2s;
 }
 
-.pricing-note a:hover {
-  opacity: 0.7;
-}
+.pricing-note a:hover { opacity: 0.7; }
 
 @media (max-width: 900px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
-  }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
 }
