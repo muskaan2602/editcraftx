@@ -1,0 +1,34 @@
+.page-transition {
+  will-change: opacity, transform;
+}
+
+.page-transition--enter {
+  animation: pageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-transition--exit {
+  animation: pageExit 0.3s cubic-bezier(0.4, 0, 1, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}

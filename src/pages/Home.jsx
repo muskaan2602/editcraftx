@@ -1,4 +1,5 @@
 import Hero from '../sections/Hero'
+import Marquee from '../components/Marquee'
 import ShowreelSection from '../sections/ShowreelSection'
 import Features from '../sections/Features'
 import PortfolioPreview from '../sections/PortfolioPreview'
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Marquee />
       <ShowreelSection />
       <Features />
       <PortfolioPreview />

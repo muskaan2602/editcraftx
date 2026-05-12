@@ -1,0 +1,64 @@
+.cursor-dot {
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--neon-orange);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, top 0.2s, left 0.2s, opacity 0.2s;
+  box-shadow: 0 0 8px var(--neon-orange), 0 0 16px rgba(255,60,0,0.4);
+  will-change: transform;
+}
+
+.cursor-dot.hovering {
+  width: 6px;
+  height: 6px;
+  top: -3px;
+  left: -3px;
+  background: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink), 0 0 20px rgba(255,0,128,0.5);
+}
+
+.cursor-dot.clicking {
+  transform: scale(0.6) !important;
+  opacity: 0.7;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 60, 0, 0.6);
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.3s, height 0.3s, top 0.3s, left 0.3s, border-color 0.3s, opacity 0.3s;
+  will-change: transform;
+}
+
+.cursor-ring.hovering {
+  width: 56px;
+  height: 56px;
+  top: -28px;
+  left: -28px;
+  border-color: rgba(255, 0, 128, 0.7);
+  background: rgba(255, 0, 128, 0.05);
+}
+
+.cursor-ring.clicking {
+  width: 32px;
+  height: 32px;
+  top: -16px;
+  left: -16px;
+  opacity: 0.5;
+}
+
+/* Hide default cursor everywhere when custom cursor is active */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}

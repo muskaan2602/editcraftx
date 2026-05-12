@@ -105,7 +105,7 @@ button { cursor: pointer; font-family: var(--sans); }
   padding: 0 24px;
 }
 
-/* ── Section labels ── */
+/* ── Section labels with neon flicker ── */
 .section-label {
   font-size: 11px;
   font-weight: 700;
@@ -117,6 +117,18 @@ button { cursor: pointer; font-family: var(--sans); }
   background-clip: text;
   margin-bottom: 16px;
   display: inline-block;
+  animation: neonFlicker 4s ease-in-out infinite;
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px rgba(255,60,0,0.8));
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 1px rgba(255,60,0,0.3));
+  }
 }
 
 /* ── Section titles — Syne font ── */
