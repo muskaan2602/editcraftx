@@ -9,6 +9,7 @@ import Contact from './pages/Contact'
 import AdminPanel from './pages/AdminPanel'
 import NotFound from './pages/NotFound'
 import { BookingProvider } from './context/BookingContext'
+import { ThemeProvider } from './context/ThemeContext'
 import './index.css'
 
 // Scroll to top on route change
@@ -44,11 +45,13 @@ function Layout() {
 
 function App() {
   return (
-    <BookingProvider>
-      <BrowserRouter>
-        <Layout />
-      </BrowserRouter>
-    </BookingProvider>
+    <ThemeProvider>
+      <BookingProvider>
+        <BrowserRouter>
+          <Layout />
+        </BrowserRouter>
+      </BookingProvider>
+    </ThemeProvider>
   )
 }
 

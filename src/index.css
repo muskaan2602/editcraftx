@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap');
 
-:root {
+/* ── Dark mode (default) ── */
+:root,
+[data-theme="dark"] {
   --bg: #050505;
   --bg-secondary: #0d0d0d;
   --bg-card: #111111;
@@ -9,25 +11,53 @@
   --text: #888888;
   --text-light: #555555;
   --heading: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.4);
 
-  /* Neon palette */
-  --accent: #ff3c00;
-  --accent-hover: #ff5a2a;
-  --accent-glow: rgba(255, 60, 0, 0.18);
+  /* Neon palette — same in both modes */
   --neon-orange: #ff3c00;
   --neon-pink: #ff0080;
   --neon-purple: #9b00ff;
   --neon-cyan: #00d4ff;
+  --accent: #ff3c00;
+  --accent-hover: #ff5a2a;
+  --accent-glow: rgba(255, 60, 0, 0.18);
 
-  /* Gradient text */
+  /* Gradients */
   --gradient-text: linear-gradient(135deg, #ff3c00 0%, #ff0080 50%, #9b00ff 100%);
   --gradient-text-alt: linear-gradient(135deg, #00d4ff 0%, #9b00ff 50%, #ff0080 100%);
-  --gradient-glow: linear-gradient(135deg, rgba(255,60,0,0.3) 0%, rgba(255,0,128,0.3) 50%, rgba(155,0,255,0.3) 100%);
 
   --sans: 'Inter', system-ui, sans-serif;
-  --display: 'Space Grotesk', system-ui, sans-serif;
+  --display: 'Syne', system-ui, sans-serif;
 }
 
+/* ── Light mode ── */
+[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-secondary: #f2f2f2;
+  --bg-card: #ffffff;
+  --border: #e4e4e4;
+  --border-bright: #d0d0d0;
+  --text: #555555;
+  --text-light: #999999;
+  --heading: #0a0a0a;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+
+  /* Slightly toned neon for light bg readability */
+  --neon-orange: #e83500;
+  --neon-pink: #d6006b;
+  --neon-purple: #7a00cc;
+  --neon-cyan: #0099cc;
+  --accent: #e83500;
+  --accent-hover: #ff3c00;
+  --accent-glow: rgba(232, 53, 0, 0.12);
+
+  --gradient-text: linear-gradient(135deg, #e83500 0%, #d6006b 50%, #7a00cc 100%);
+  --gradient-text-alt: linear-gradient(135deg, #0099cc 0%, #7a00cc 50%, #d6006b 100%);
+}
+
+/* ── Reset ── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -43,6 +73,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root { min-height: 100vh; }
@@ -51,7 +82,7 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { cursor: pointer; font-family: var(--sans); }
 
-/* Scrollbar */
+/* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb {
@@ -62,13 +93,6 @@ button { cursor: pointer; font-family: var(--sans); }
 /* ── Neon gradient text utility ── */
 .neon-text {
   background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.neon-text-alt {
-  background: var(--gradient-text-alt);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -95,7 +119,7 @@ button { cursor: pointer; font-family: var(--sans); }
   display: inline-block;
 }
 
-/* ── Section titles ── */
+/* ── Section titles — Syne font ── */
 .section-title {
   font-family: var(--display);
   font-size: clamp(36px, 5vw, 64px);
@@ -125,7 +149,7 @@ button { cursor: pointer; font-family: var(--sans); }
   border-radius: 8px;
   border: none;
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 20px rgba(255, 60, 0, 0.3);
+  box-shadow: 0 0 20px rgba(255, 60, 0, 0.25);
   position: relative;
   overflow: hidden;
 }
@@ -141,7 +165,7 @@ button { cursor: pointer; font-family: var(--sans); }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 32px rgba(255, 60, 0, 0.5), 0 0 60px rgba(255, 0, 128, 0.2);
+  box-shadow: 0 0 32px rgba(255, 60, 0, 0.45), 0 0 60px rgba(255, 0, 128, 0.15);
   opacity: 0.95;
 }
 
@@ -164,8 +188,8 @@ button { cursor: pointer; font-family: var(--sans); }
 .btn-outline:hover {
   border-color: var(--neon-orange);
   color: var(--neon-orange);
-  box-shadow: 0 0 16px rgba(255, 60, 0, 0.2);
-  background: rgba(255, 60, 0, 0.05);
+  box-shadow: 0 0 16px rgba(255, 60, 0, 0.15);
+  background: var(--accent-glow);
 }
 
 /* ── Page wrapper ── */

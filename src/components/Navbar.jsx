@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
 import './Navbar.css'
 
 const navLinks = [
@@ -72,18 +73,21 @@ export default function Navbar() {
             <Link to="/contact" className="btn-primary nav-cta">Book Now</Link>
           </nav>
 
-          <button
-            ref={hamburgerRef}
-            className={`hamburger ${menuOpen ? 'open' : ''}`}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
-            aria-controls="main-nav"
-            onClick={() => setMenuOpen(o => !o)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <div className="navbar-right">
+            <ThemeToggle />
+            <button
+              ref={hamburgerRef}
+              className={`hamburger ${menuOpen ? 'open' : ''}`}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              aria-controls="main-nav"
+              onClick={() => setMenuOpen(o => !o)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
       </header>
 

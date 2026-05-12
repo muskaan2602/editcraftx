@@ -1,10 +1,10 @@
 .footer {
   background: var(--bg-secondary);
-  border-top: 1px solid transparent;
-  background-image: linear-gradient(var(--bg-secondary), var(--bg-secondary));
-  box-shadow: 0 -1px 0 rgba(255,60,0,0.15), 0 -40px 80px rgba(255,60,0,0.03);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -1px 0 rgba(255,60,0,0.1);
   padding: 80px 0 32px;
   margin-top: 0;
+  transition: background 0.3s ease;
 }
 
 .footer-top {
